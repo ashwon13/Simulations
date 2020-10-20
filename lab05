@@ -1,0 +1,28 @@
+#name:Ashwin Pulla
+#Date:10/20/2020
+
+#imports
+
+from random import *
+import math
+
+# inital conditionss
+
+t=0.0 #time
+x=0.0 #distance x axis
+y=0.0 #distance y axis
+v=26.82 #velocity
+degress=30 #degress for theta
+theta = degress *(math.pi/180)
+dt=0.001 #time steps
+vy=v*(math.cos(theta))
+vx=v*(math.sin(theta)) #velocity y
+g=-9.21
+#actual loop
+
+while y>=0:
+   y+=(vy*dt)# getting y distance (rate * time)
+   x+=(vx *dt)#getting x distance (rate * time)
+   vy+=(g*dt)#adding gravity to y velocity
+   t+=dt #increasing time step
+   print (t,x,y)
