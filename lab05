@@ -1,50 +1,34 @@
-#name:Ashwin Pulla
-#Date:10/20/2020
+from math import pi, cos, sin
+v0=15
+theta=pi/3
+vx=v0 * cos(theta)
+vy=v0 * sin(theta)
 
-#imports
-
-import math
-
-
-f=open("values.txt", "w")
-times=open("times.txt","w")
-xVals=open("xVals.txt","w")
-yVals=open("yVals2.txt","w")
-
-vw=-15
-t=0.0 #time
+x=0
 y=0
-x=0#distance y axis
-v=15 #velocity
-degress=60 #degress for theta
-theta = (math.pi/3)
-dt=0.005 #time steps
-vy=v*(math.cos(theta))
-vx=v*(math.sin(theta)) #velocity y
-g=9.82
-c=0.5#wind';hbv resistance
-#wind speed
-ax=(-c* (vx-vw))
-ay=((g-c) * (vy))
-#actual loop
+t=0
+dt=0.005
+g=-9.82
+c1=0.5
+vw=-10
+ 
+ax=0
+ay=g
+f=open("VAluesX-10.txt", "w")
+k=open("VAluesY-10.txt","w")
 
 while y>=0:
-   y+=(vy*dt)# getting y distance (rate * time)
-   x+=(vx *dt)#getting x distance (rate * time)
-   vy+=(ay*dt)#adding gravity to y velocity
-   vx+=(ax*dt)
-    #increasing time step
-   ax=(-c* (vx-vw))
-   ay=((g-c) * (vy))
+   f=open("VAluesX-10.txt", "w")
+   k=open("VAluesY-10.txt","w")
+   y+=vy*dt
+   x+=vx*dt
+   vy+=ay*dt
+   vx+=ax*dt
+   ay=g-c1*vy
+   ax=-c1 *(vx-vw)
    t+=dt
-   
-   f.write("(" + str(t)+")"+ " "+ "("+ str(x)+")"+ " "+"(" + str(y)+ ")"+ " ""\n")
-   times.write("(" + str(t)+")"+ "\n")
-   xVals.write(str(x) + "\n")
-   yVals.write(str(y) + "\n")
    print(y)
-print("done!")
-f.close()
-times.close()
-xVals.close()
-yVals.close()
+   f.write(str(x) + "\n")
+   k.write(str(y)+ "\n")
+   f.close()
+   k.close()
