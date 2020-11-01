@@ -14,12 +14,10 @@ vw=-10
  
 ax=0
 ay=g
-f=open("VAluesX-10.txt", "w")
-k=open("VAluesY-10.txt","w")
+f=open("VAluesX.txt", "w")
+k=open("VAluesY.txt","w")
 
 while y>=0:
-   f=open("VAluesX-10.txt", "w")
-   k=open("VAluesY-10.txt","w")
    y+=vy*dt
    x+=vx*dt
    vy+=ay*dt
@@ -30,5 +28,6 @@ while y>=0:
    print(y)
    f.write(str(x) + "\n")
    k.write(str(y)+ "\n")
-   f.close()
-   k.close()
+f.close()
+k.close()
+
