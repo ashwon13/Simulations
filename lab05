@@ -1,33 +1,80 @@
-from math import pi, cos, sin
-v0=15
-theta=pi/3
-vx=v0 * cos(theta)
-vy=v0 * sin(theta)
+from math import sin,pi,cos
+f=open("ValuesX.txt", "w")
+k=open("ValuesY.txt","w")
+def parabolaX(vw):
+   vw=vw
+   v0=15
+   theta=pi/3
+   vx=v0 * cos(theta)
+   vy=v0 * sin(theta)
 
-x=0
-y=0
-t=0
-dt=0.005
-g=-9.82
-c1=0.5
-vw=-10
+   x=0
+   y=0
+   t=0
+   dt=0.005
+   g=-9.82
+   c1=0.5
+   
+    
+   ax=0
+   ay=g
+   f=open("ValuesX.txt", "w")
+   
+   while y>=0:
+      f.write(str(x) + "\n")
+      y+=vy*dt
+      x+=vx*dt
+      vy+=ay*dt
+      vx+=ax*dt
+      ay=g-c1*vy
+      ax=-c1 *(vx-vw)
+      t+=dt
+      
+      
+      
+      
+   f.close()
+  
  
-ax=0
-ay=g
-f=open("VAluesX.txt", "w")
-k=open("VAluesY.txt","w")
+def parabolaY(vw):
+   vw=vw
+   v0=15
+   theta=pi/3
+   vx=v0 * cos(theta)
+   vy=v0 * sin(theta)
+   
+   x=0
+   y=0
+   t=0
+   dt=0.005
+   g=-9.82
+   c1=0.5
+   
+    
+   ax=0
+   ay=g
+   
+   k=open("ValuesY.txt","w")
+   while y>=0:
+      k.write(str(y) + "\n")
+      y+=vy*dt
+      x+=vx*dt
+      vy+=ay*dt
+      vx+=ax*dt
+      ay=g-c1*vy
+      ax=-c1 *(vx-vw)
+      t+=dt
+      print(y)
+      
+      
+      
+      
+   
+   k.close()
+ 
+ 
+ 
 
-while y>=0:
-   y+=vy*dt
-   x+=vx*dt
-   vy+=ay*dt
-   vx+=ax*dt
-   ay=g-c1*vy
-   ax=-c1 *(vx-vw)
-   t+=dt
-   print(y)
-   f.write(str(x) + "\n")
-   k.write(str(y)+ "\n")
-f.close()
-k.close()
+parabolaX(-15)
+parabolaY(-15)
 
